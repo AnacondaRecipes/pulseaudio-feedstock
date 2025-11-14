@@ -135,7 +135,7 @@ outputs:
         - pulseaudio --version
         # make sure the daemon from this package is running first
         - pulseaudio --check && pulseaudio --kill
-        - pulseaudio --start
+        - pulseaudio --start --daemonize
         - pulseaudio --check
         - pacmd stat
         - pamon --version

@@ -1,5 +1,5 @@
 {% set version = "17.0" %}
-{% set build = 2 %}
+{% set build = 3 %}
 
 package:
   name: pulseaudio-split
@@ -132,14 +132,19 @@ outputs:
         - pkg-config
       commands:
         - test -f `pkg-config --variable=modlibexecdir --dont-define-prefix libpulse`/libprotocol-native.so
-        - pa-info
-        - pacmd --help
+        - pulseaudio --version
+        # make sure the daemon from this package is running first
+        - pulseaudio --check && pulseaudio --kill
+        - pulseaudio --start --daemonize
+        - pulseaudio --check
+        - pacmd stat
         - pamon --version
         - paplay --version
         - parec --version
         - parecord --version
         - pasuspender --help
-        - pulseaudio --help
+        - pactl info
+        - pactl list
     about:
       home: https://www.freedesktop.org/wiki/Software/PulseAudio/
       license: GPL-2.0-or-later

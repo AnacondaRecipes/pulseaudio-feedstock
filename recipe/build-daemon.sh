@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 meson_config_args=(
+    -Dman=false
     -Dclient=false
     -Ddaemon=true
+    -Dsystemd=disabled
     --wrap-mode=nodownload
     -Ddatabase=simple
     -Ddoxygen=false
-    -Dudevrulesdir=${PREFIX}/lib/udev/rules.d
 )
 
 # MESON_ARGS is set by conda compiler activation script

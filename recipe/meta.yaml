@@ -1,6 +1,6 @@
 {% set name = "pulseaudio" %}
 {% set version = "17.0" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 package:
   name: {{ name|lower }}-split
@@ -67,6 +67,7 @@ outputs:
       license_file: LGPL
       summary: Client library for pulseaudio, a networked sound server
       doc_url: https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation
+
   - name: pulseaudio-daemon
     script: build-daemon.sh
     build:
@@ -75,7 +76,7 @@ outputs:
       ignore_run_exports_from:
         - {{ compiler('cxx') }}
         - glib
-        - libzlib 
+        - libzlib
     requirements:
       build:
         - {{ stdlib('c') }}
@@ -140,6 +141,7 @@ outputs:
       license_file: GPL
       summary: A networked sound server
       doc_url: https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation
+
   - name: pulseaudio
     build:
       run_exports:

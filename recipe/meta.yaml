@@ -26,7 +26,6 @@ outputs:
         - {{ pin_subpackage('pulseaudio-client', max_pin='x.x') }}
       ignore_run_exports_from:
         - {{ compiler('cxx') }}
-        - fftw
         - xorg-libx11
         - libzlib
     requirements:
@@ -44,7 +43,6 @@ outputs:
         - xorg-libx11
         - xorg-xorgproto
         - dbus {{ dbus }}
-        - fftw {{ fftw }}
         - glib {{ glib }}
         - libxcb {{ libxcb }}
         - libzlib {{ libzlib }}
@@ -85,7 +83,6 @@ outputs:
         - m4
         - meson
         - ninja-base
-        - gstreamer-orc
         - pkg-config
       host:
         - alsa-lib
@@ -111,7 +108,6 @@ outputs:
         - {{ pin_subpackage('pulseaudio-client', exact=True) }}
       run:
         - {{ pin_compatible('gstreamer-orc', max_pin='x.x') }}
-        - {{ pin_compatible('libtool', max_pin='x') }}
         - {{ pin_subpackage('pulseaudio-client', exact=True) }}
         - libltdl
       run_constrained:
@@ -144,13 +140,10 @@ outputs:
 
   - name: pulseaudio
     build:
-      run_exports:
-        - {{ pin_subpackage('pulseaudio-client', max_pin='x.x') }}
       ignore_run_exports_from:
         - {{ compiler('cxx') }}
     requirements:
       build:
-        # Add these so the build string gets generated correctly
         - {{ stdlib('c') }}
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}

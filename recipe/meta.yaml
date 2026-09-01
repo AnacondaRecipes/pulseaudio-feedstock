@@ -161,7 +161,7 @@ about:
   license_family: LGPL
   license_file: LGPL
   summary: A networked sound server
-  description: A networked sound server
+  description: A networked sound server.
   dev_url: https://www.freedesktop.org/wiki/Software/PulseAudio/Download
   doc_url: https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation
 

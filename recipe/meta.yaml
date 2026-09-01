@@ -38,8 +38,8 @@ outputs:
         - ninja-base
         - pkg-config
       host:
-        - check
-        - libsndfile
+        - check 0.15.2
+        - libsndfile {{ libsndfile }}
         - xorg-libx11 {{ xorg_libx11 }}
         - xorg-xorgproto {{ xorg_xorgproto }}
         - dbus {{ dbus }}

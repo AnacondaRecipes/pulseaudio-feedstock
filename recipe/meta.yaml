@@ -1,6 +1,6 @@
 {% set name = "pulseaudio" %}
 {% set version = "17.0" %}
-{% set build = 1 %}
+{% set build = 2 %}
 
 package:
   name: {{ name|lower }}-split
@@ -38,10 +38,10 @@ outputs:
         - ninja-base
         - pkg-config
       host:
-        - check
-        - libsndfile
-        - xorg-libx11
-        - xorg-xorgproto
+        - check 0.15.2
+        - libsndfile {{ libsndfile }}
+        - xorg-libx11 {{ xorg_libx11 }}
+        - xorg-xorgproto {{ xorg_xorgproto }}
         - dbus {{ dbus }}
         - glib {{ glib }}
         - libxcb {{ libxcb }}
@@ -93,11 +93,11 @@ outputs:
         - libsndfile
         - libtool
         - soxr
-        - xorg-libx11
-        - xorg-libice
-        - xorg-libsm
-        - xorg-libxtst
-        - xorg-xorgproto
+        - xorg-libx11 {{ xorg_libx11 }}
+        - xorg-libice {{ xorg_libice }}
+        - xorg-libsm {{ xorg_libsm }}
+        - xorg-libxtst {{ xorg_libxtst }}
+        - xorg-xorgproto {{ xorg_xorgproto }}
         - dbus {{ dbus }}
         - fftw {{ fftw }}
         - glib {{ glib }}
@@ -161,7 +161,7 @@ about:
   license_family: LGPL
   license_file: LGPL
   summary: A networked sound server
-  description: A networked sound server
+  description: A networked sound server.
   dev_url: https://www.freedesktop.org/wiki/Software/PulseAudio/Download
   doc_url: https://www.freedesktop.org/wiki/Software/PulseAudio/Documentation
 
